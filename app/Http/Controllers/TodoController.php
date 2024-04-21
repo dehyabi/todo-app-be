@@ -40,7 +40,10 @@ class TodoController extends Controller
      */
     public function update(Request $request, Todo $todo)
     {
-        //
+        $todo->title = $request->title;
+        $todo->is_done = $request->is_done;
+        $todo->save();
+        return response()->json(true);
     }
 
     /**
