@@ -54,4 +54,11 @@ class TodoController extends Controller
         $todo->delete();
         return response()->json(true);
     }
+
+    public function updateStatus(Request $request, Todo $todo)
+    {
+        $todo->is_done = $request->is_done;
+        $todo->save();
+        return response()->json(true);
+    }
 }
